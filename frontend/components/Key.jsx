@@ -6,12 +6,12 @@ var KeyStore = require('../stores/KeyStore');
 var Key = React.createClass({
   _keysChanged: function() {
     var keys = KeyStore.all();
+
     if (keys.indexOf(this.props.noteName) !== -1) {
       this.note.start();
     } else {
       this.note.stop();
     }
-
   },
 
   componentDidMount: function() {

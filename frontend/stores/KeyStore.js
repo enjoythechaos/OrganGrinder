@@ -22,18 +22,16 @@ KeyStore.__onDispatch = function(payload) {
 };
 
 var addKey = function(noteName) {
-  console.log('add');
   _keys.push(noteName);
-  console.log(_keys);
   KeyStore.__emitChange();
 };
 
 var removeKey = function(noteName) {
-  console.log('remove');
   var idx = _keys.indexOf(noteName);
-  _keys.splice(idx, 1);
-  console.log(_keys);
-  KeyStore.__emitChange();
+  if (idx !== -1) {
+    _keys.splice(idx, 1);
+    KeyStore.__emitChange();
+  }
 };
 
 module.exports = KeyStore;
